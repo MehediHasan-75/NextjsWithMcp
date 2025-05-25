@@ -11,7 +11,6 @@ dotenv.config();
 interface MCPServerConfig {
     command: string;
     args: string[];
-    env?: Record<string, string>;
 }
 
 interface Config {
@@ -59,7 +58,7 @@ class MCPClient {
 
         for (const [serverName, serverInfo] of Object.entries(mcpServers)) {
             const client = new Client({ name: `client-${serverName}`, version: "1.0.0" });
-
+            console.log(serverInfo);
             const resolvedArgs = serverInfo.args.map(arg =>
                 path.isAbsolute(arg) ? arg : path.resolve(process.cwd(), arg)
             );
@@ -67,7 +66,6 @@ class MCPClient {
             const transport = new StdioClientTransport({
                 command: serverInfo.command,
                 args: resolvedArgs,
-                env: serverInfo.env,
             });
 
             await client.connect(transport);
