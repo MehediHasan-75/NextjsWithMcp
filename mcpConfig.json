@@ -1,0 +1,10 @@
+{
+    "mcpServers": {
+        "math-server": {
+            "command": "node",
+            "args": [
+                "./mcp-tools/math-server.js"
+            ]
+        }
+    }
+}

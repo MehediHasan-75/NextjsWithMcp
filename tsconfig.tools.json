@@ -1,0 +1,22 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "target": "ES2020", // ✅ Fixes the Zod error
+        "module": "CommonJS",
+        "outDir": "mcp-tools",
+        "noEmit": false,
+        "esModuleInterop": true,
+        "strict": true,
+        "types": [
+            "node"
+        ],
+        "moduleResolution": "node",
+        "resolveJsonModule": true
+    },
+    "include": [
+        "mcp-tools/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
